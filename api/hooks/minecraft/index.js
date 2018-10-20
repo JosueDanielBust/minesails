@@ -8,17 +8,8 @@ module.exports = function (sails) {
 
   let hook;
 
-  const ScriptServer = require('scriptserver');
-  const server = new ScriptServer({
-    core: {
-      jar: 'spigot.jar',
-      args: ['-Xmx2G'],
-      rcon: {
-        port: '25575',
-        password: 'password'
-      }
-    }
-  });
+  const Rcon = require('modern-rcon');
+  const rcon = new Rcon('localhost', 'password');
 
   return {
 
@@ -31,7 +22,7 @@ module.exports = function (sails) {
       sails.log.info('Initializing: (MSH) Minecraft Server Hook');
 
       hook = this;
-      hook.server = server.start();
+      hook.rcon = rcon;
 
       return done();
     },
@@ -40,7 +31,15 @@ module.exports = function (sails) {
         'GET /shop/vip/*': function (req, res, next) {
           let data = { secret: req.secret, params: req.params };
           //hook.server.send(`op ${data.params[0]}`);
-          hook.server.send(`say it\'s OP now :O!`);
+          
+          rcon.connect().then(() => {
+            return rcon.send('help'); // That's a command for Minecraft
+          }).then(res => {
+            console.log(res);
+          }).then(() => {
+            return rcon.disconnect();
+          });
+          
           return next();
         }
       }
