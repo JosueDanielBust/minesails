@@ -28,21 +28,46 @@ module.exports = function (sails) {
     },
     routes: {
       after: {
-        'GET /shop/vip/*': function (req, res, next) {
+        'GET /shop/activate/vip/*': function (req, res, next) {
+          let data = { secret: req.secret, user: req.params[0], params: req.params };
+          vip(data);
+          return next();
+        },
+        'GET /shop/activate/unban/*': function (req, res, next) {
           let data = { secret: req.secret, params: req.params };
-          //hook.server.send(`op ${data.params[0]}`);
-          
-          rcon.connect().then(() => {
-            return rcon.send('help'); // That's a command for Minecraft
-          }).then(res => {
-            console.log(res);
-          }).then(() => {
-            return rcon.disconnect();
-          });
-          
+          unban(data);
+          return next();
+        },
+        'GET /shop/activate/vipunban/*': function (req, res, next) {
+          let data = { secret: req.secret, params: req.params };
+          unban(data);
           return next();
         }
       }
     }
   };
+  function vip(data) {
+    rcon.connect().then(() => {
+      return rcon.send(`lp user ${data.user} parent addtemp vip 30d`);
+    }).then(() => {
+      return rcon.send(`eco give ${data.user} 500000`);
+    }).then(() => {
+      return rcon.send(`give ${data.user} minecraft:experience_bottle 64`);
+    }).then(() => {
+      return rcon.send(`give ${data.user} minecraft:diamond 64`);
+    }).then(() => {
+      return rcon.send(`tellraw ${data.user} ["",{"text":"[","color":"white","bold":true},{"text":"DDR Server","color":"aqua","bold":false},{"text":"] ","color":"white","bold":true},{"text":"Tu ","color":"white","bold":false},{"text":"VIP","color":"yellow","bold":true},{"text":" se ha activado exitosamente. ¡Gracias por apoyarnos!","color":"none","bold":false}]`);
+    }).then(() => {
+      return rcon.disconnect();
+    });
+  }
+  function unban(data) {
+    rcon.connect().then(() => {
+      return rcon.send(`unban ${data.user}`);
+    }).then(() => {
+      return rcon.send(`unbanip ${data.user}`);
+    }).then(() => {
+      return rcon.disconnect();
+    });
+  }
 };
