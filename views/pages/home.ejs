@@ -1,0 +1,27 @@
+<link href="https://fonts.googleapis.com/css?family=Bad+Script|Lato:100" rel="stylesheet">
+
+<div class="container content">
+  <h1><%= title %></h1>
+  <h2><%= description %></h2>
+  <h3>IP: <span><%= ip %></span></h3>
+  <div class="bubble bounce">
+      <span>Click para copiar la IP</span>
+  </div>
+</div>
+<script>
+  var copyBtn = document.querySelector('h3');
+  copyBtn.addEventListener('click', function(event) {
+      var link = document.querySelector('h3 span');
+      var range = document.createRange();
+      range.selectNode(link);
+      window.getSelection().addRange(range);
+      try {
+          var successful = document.execCommand('copy');
+          var msg = successful ? 'successful' : 'unsuccessful';
+          console.log(msg);
+      } catch(err) {
+          console.log('Oops, unable to copy');
+      } 
+      window.getSelection().removeAllRanges();
+  });
+</script>

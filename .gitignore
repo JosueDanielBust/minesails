@@ -20,3 +20,4 @@ world_the_end
 .tmp/
 .DS_Store
 */.DS_Store
+.sass-cache
