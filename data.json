@@ -1,5 +1,5 @@
-[
-    {
+{
+    "vip": {
         "title": "VIP",
         "price": "5 USD",
         "content": [
@@ -8,7 +8,7 @@
         ],
         "comments": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti aperiam repellendus obcaecati minima quia laudantium consectetur corporis debitis harum doloribus iure tempore tempora facere suscipit, error odio maxime hic a."
     },
-    {
+    "unban": {
         "title": "Unban",
         "price": "3 USD",
         "content": [
@@ -16,7 +16,7 @@
         ],
         "comments": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti aperiam repellendus obcaecati minima quia laudantium consectetur corporis debitis harum doloribus iure tempore tempora facere suscipit, error odio maxime hic a."
     },
-    {
+    "vip-unban": {
         "title": "VIP + Unban",
         "price": "7 USD",
         "content": [
@@ -25,4 +25,4 @@
         ],
         "comments": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti aperiam repellendus obcaecati minima quia laudantium consectetur corporis debitis harum doloribus iure tempore tempora facere suscipit, error odio maxime hic a."
     }
-]
+}
