@@ -36,16 +36,6 @@ module.exports.views = {
   *                                                                          *
   ***************************************************************************/
 
-  layout: 'layouts/layout',
-  
-  locals: {
-    title: 'DDR Server',
-    email: 'info@ddrserver.com',
-    description: 'Servidor latinoamericano de Minecraft - No premium',
-    ip: 'ddrserver.com',
-    social: {
-      facebook: 'https://facebook.com/ddrserver/'
-    }
-  }
+  layout: 'layouts/layout'
 
 };

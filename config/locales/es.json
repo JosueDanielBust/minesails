@@ -1,4 +1,10 @@
 {
-  "Welcome": "Bienvenido",
-  "A brand new app.": "Una nueva aplicación."
+  "title": "DDR Server",
+  "email": "info@ddrserver.com",
+  "description": "Servidor latinoamericano de Minecraft - No premium",
+  "ip": "ddrserver.com",
+  "click-to-copy": "Click para copiar la IP",
+  "social": {
+    "facebook": "https://facebook.com/ddrserver/"
+  }
 }
