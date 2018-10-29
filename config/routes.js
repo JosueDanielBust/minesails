@@ -25,8 +25,9 @@ module.exports.routes = {
   ***************************************************************************/
 
   '/': { view: 'pages/home', locals: { layout: '/layouts/home' } },
-  'get /shop': { view: 'pages/shop/main', locals: { title: 'Shop' } },
-  'get /report': { view: 'pages/report', locals: { title: 'Report' } }
+  'get /shop': { view: 'pages/shop/main', locals: { layout: '/layouts/page', title: 'Shop' } },
+  'get /report': { view: 'pages/report/main', locals: { layout: '/layouts/page', title: 'Report' } },
+  'get /report/thanks': { view: 'pages/report/thanks', locals: { layout: '/layouts/page', title: 'Thank you for your report' } }
 
   /***************************************************************************
   *                                                                          *
