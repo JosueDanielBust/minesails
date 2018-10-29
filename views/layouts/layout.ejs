@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= __('title') %> - <%= title %></title>
+    <title><%= __('title') %></title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link rel="stylesheet" href="/styles/importer.css">
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400" rel="stylesheet">
@@ -11,57 +11,12 @@
     <header>
       <div class="container">
         <p class="h1"><%= __('title') %></p>
-        <p class="h2"><%= title %></p>
       </div>
     </header>
-    <main class="container row">
-      <section class="col-8">
-          <%- body %>
-      </section>
-      <aside class="col-4">
-          <div class="widget server">
-            <p class="title"><%= __('title') %></p>
-            <p>IP: <span><%= __('ip') %></span></p>
-            <p>Online: 1 / 100</p>
-          </div>
-          <div class="widget goal">
-            <p class="title">Donation Goal</p>
-            <progress value="10" max="30"></progress>
-            <p>
-              <span class="actual">10</span> / <span class="top">30</span> USD
-            </p>
-          </div>
-          <div class="widget top">
-            <p class="title">Top Donator</p>
-            <figure>
-              <img src="https://minotar.net/helm/JosueDanielBust/50.png" alt="Minecraft User Helm">
-              <figcaption>
-                <p class="user">JosueDanielBust</p>
-              </figcaption>
-            </figure>
-          </div>
-          <div class="widget recent">
-            <p class="title">Recent Donations</p>
-            <figure>
-              <img src="https://minotar.net/helm/JosueDanielBust/50.png" alt="Minecraft User Helm">
-              <figcaption>
-                <p class="user">JosueDanielBust</p>
-                <p>
-                  <span class="date">26 October 2018</span> &#8227; <span class="quantity">5.00 USD</span>
-                </p>
-              </figcaption>
-            </figure>
-            <figure>
-              <img src="https://minotar.net/helm/ricardogottheil/50.png" alt="Minecraft User Helm">
-              <figcaption>
-                <p class="user">ricardogottheil</p>
-                <p>
-                  <span class="date">26 October 2018</span> &#8227; <span class="quantity">5.00 USD</span>
-                </p>
-              </figcaption>
-            </figure>
-      </aside>
+    <main>
+      <%- body %>
     </main>
+    <%- partial('../partials/footer.ejs') %>
     <script src="/dependencies/sails.io.js"></script>
   </body>
 </html>

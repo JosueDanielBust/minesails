@@ -2,8 +2,10 @@ $white: #ffffff;
 $gray: #bbbbbb;
 $black: #444444;
 $green: #00AAAA;
+$green-lighter: #00CCCC;
 
 body {
+    color: $black;
     font-size: 16px;
     font-family: 'Lato', sans-serif;
 }
@@ -55,9 +57,11 @@ nav {
                 }
             }
             &.mark {
-                color: $green;
-                font-weight: bold;
-                padding: 1rem 2rem;
+                padding: 0 2rem;
+                a {
+                    color: $green;
+                    font-weight: bold;
+                }
             }
         }
     }
@@ -69,6 +73,7 @@ header {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    margin-bottom: 3rem;
     p {
         color: $white;
         margin: 0;
@@ -106,6 +111,9 @@ aside {
                 span.actual {
                     font-weight: 400;
                 }
+                &.title {
+                    text-align: left;
+                }
             }
         }
         figure {
@@ -122,11 +130,12 @@ aside {
     }
 }
 section {
-    margin: 2rem 0;
+    .content {
+        margin: 0 2rem;
+    }
     form {
         display: flex;
         flex-direction: column;
-        margin: 0 2rem;
         font-weight: 300;
         div {
             display: flex;
@@ -134,9 +143,6 @@ section {
             margin: 0.5rem 0;
             label {
                 display: none;
-                &.keep {
-                    display: unset;
-                }
             }
             input, textarea {
                 font-size: 1rem;
@@ -144,15 +150,76 @@ section {
                 padding: 0.5rem 1rem;
                 border: 1px solid $gray;
                 border-radius: 1px;
+                &:hover, &:active, &:focus {
+                    border-color: $green;
+                }
             }
             textarea {
                 resize: none;
             }
+            input[type="file"] {
+                border: unset;
+            }
+            &.keep {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                label {
+                    display: unset;
+                    &::after {
+                        content: ": ";
+                    }
+                }
+            }
+        }
+    }
+    p {
+        margin: 0;
+    }
+    a {
+        color: $green;
+        text-decoration: none;
+        &:hover {
+            color: $gray;
         }
     }
     button, .btn {
         background-color: $green;
-        border: 1px solid $green;
+        border: unset;
         border-radius: 1px;
+        color: $white;
+        cursor: pointer;
+        margin: 1rem 0;
+        padding: 1rem;
+        transition: 1s;
+        &:hover {
+            background-color: $green-lighter;
+        }
+    }
+}
+footer {
+    margin-top: 2rem;
+    padding: 2rem 0;
+    ul {
+        list-style: none;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        margin: 0;
+        padding: 0;
+        li {
+            margin: 0 1rem;
+            padding: 0;
+            a {
+                color: $green;
+                text-decoration: none;
+                &:hover {
+                    color: $gray;
+                }
+            }
+        }
+    }
+    p {
+        text-align: center;
     }
 }
