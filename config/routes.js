@@ -26,6 +26,7 @@ module.exports.routes = {
 
   // General pages
   '/': { view: 'pages/home', locals: { layout: '/layouts/home' } },
+
   'get /staff': { view: 'pages/staff', locals: { layout: '/layouts/page', title: 'Staff' } },
 
   // Shop
@@ -56,6 +57,8 @@ module.exports.routes = {
   //  ╠═╣╠═╝║  ║╣ ║║║ ║║╠═╝║ ║║║║║ ║ ╚═╗
   //  ╩ ╩╩  ╩  ╚═╝╝╚╝═╩╝╩  ╚═╝╩╝╚╝ ╩ ╚═╝
 
+  'get /api/shop': 'ShopController.items',
+  'get /api/shop/:id': 'ShopController.item',
 
 
   //  ╦ ╦╔═╗╔╗ ╦ ╦╔═╗╔═╗╦╔═╔═╗
