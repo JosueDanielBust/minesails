@@ -1,0 +1,17 @@
+<h1>Report user on DDR Server</h1>
+<form action="/api/v1/report/" method="POST" enctype="multipart/form-data">
+    <input type='hidden' name='status' value='open'>
+    <div>
+        <label for="username">Username</label>
+        <input type="text" name="username" id="username" placeholder="Username *" required="required">
+    </div>
+    <div>
+        <label for="reason">Reason</label>
+        <textarea name="reason" id="reason" cols="30" rows="5" maxlength="400" placeholder="Reason *" required="required"></textarea>
+    </div>
+    <div class="keep">
+        <label for="screenshots">Proofs</label>
+        <input type="file" name="screenshots" id="screenshots" multiple placeholder="Proofs" accept="image/png, image/jpeg">
+    </div>
+    <button>Submit</button>
+</form>
