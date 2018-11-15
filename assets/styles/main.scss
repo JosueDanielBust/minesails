@@ -223,3 +223,34 @@ footer {
         text-align: center;
     }
 }
+.error {
+    div {
+        margin-top: 1rem;
+        .col-8 {
+            display: flex;
+            flex-flow: column;
+            align-items: center;
+            justify-content: center;
+            h1, h2, p {
+                margin: 0;
+                text-align: center;
+            }
+            h1 {
+                font-size: 15rem;
+                line-height: 15rem;
+            }
+            h2 {
+                font-size: 2.5rem;
+            }
+            .error-details {
+                margin: 0;
+                p {
+                    text-align: center;
+                }
+            }
+        }
+        img {
+            width: 100%;
+        }
+    }
+}
