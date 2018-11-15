@@ -57,8 +57,8 @@ module.exports.routes = {
   //  ╠═╣╠═╝║  ║╣ ║║║ ║║╠═╝║ ║║║║║ ║ ╚═╗
   //  ╩ ╩╩  ╩  ╚═╝╝╚╝═╩╝╩  ╚═╝╩╝╚╝ ╩ ╚═╝
 
-  'get /api/shop': 'ShopController.items',
-  'get /api/shop/:id': 'ShopController.item',
+  //'get /api/v1/shop': 'ShopController.items',
+  //'get /api/v1/shop/:id': 'ShopController.item',
 
 
   //  ╦ ╦╔═╗╔╗ ╦ ╦╔═╗╔═╗╦╔═╔═╗
