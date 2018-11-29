@@ -11,6 +11,9 @@ module.exports = {
     slug: { type: 'string', required: true, columnType: 'varchar(50)' },
     title: { type: 'string', required: true, columnType: 'varchar(50)' },
     price: { type: 'number', required: true, columnType: 'float(10,2)' },
+    image: { type: 'string', required: true, columnType: 'varchar(100)' },
+    response: { type: 'string', required: true, columnType: 'varchar(100)' },
+    confirmation: { type: 'string', required: true, columnType: 'varchar(100)' },
     content: { type: 'json', required: true },
     comments: { type: 'string', required: true, columnType: 'varchar(1000)' }
   },

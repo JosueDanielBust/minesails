@@ -30,7 +30,10 @@ module.exports.routes = {
   'get /staff': { view: 'pages/staff', locals: { layout: '/layouts/page', title: 'Staff' } },
 
   // Shop
-  'get /shop': { view: 'pages/shop/main', locals: { layout: '/layouts/page', title: 'Shop' } },
+  'get /shop': 'ShopController.items',
+  'get /shop/:id': 'ShopController.item',
+  'get /checkout/response': 'ShopController.response',
+  'post /checkout/confirmation/:id': 'ShopController.confirmation',
 
   // Reports
   'get /report': { view: 'pages/report/main', locals: { layout: '/layouts/page', title: 'Report' } },
@@ -56,9 +59,6 @@ module.exports.routes = {
   //  ╔═╗╔═╗╦  ╔═╗╔╗╔╔╦╗╔═╗╔═╗╦╔╗╔╔╦╗╔═╗
   //  ╠═╣╠═╝║  ║╣ ║║║ ║║╠═╝║ ║║║║║ ║ ╚═╗
   //  ╩ ╩╩  ╩  ╚═╝╝╚╝═╩╝╩  ╚═╝╩╝╚╝ ╩ ╚═╝
-
-  //'get /api/v1/shop': 'ShopController.items',
-  //'get /api/v1/shop/:id': 'ShopController.item',
 
 
   //  ╦ ╦╔═╗╔╗ ╦ ╦╔═╗╔═╗╦╔═╔═╗

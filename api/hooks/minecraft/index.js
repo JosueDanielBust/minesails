@@ -26,6 +26,23 @@ module.exports = function (sails) {
 
       return done();
     },
+
+    /**
+     * Activate package after signature validation
+     * 
+     * @param {Function} username
+     */
+    activate: function ( slug, username ) {
+      switch (slug) {
+        case 'vip': vip(username); break;
+        case 'unban': unban(username); break;
+        case 'vipunban': vip(username); unban(username); break;
+        default: break;
+      }
+    },
+
+    list: function () { list(); },
+
     routes: {
       after: {
         'GET /shop/activate/vip/*': function (req, res, next) {
@@ -40,6 +57,7 @@ module.exports = function (sails) {
         },
         'GET /shop/activate/vipunban/*': function (req, res, next) {
           let data = { secret: req.secret, params: req.params };
+          vip(data);
           unban(data);
           return next();
         }
@@ -66,6 +84,15 @@ module.exports = function (sails) {
       return rcon.send(`unban ${data.user}`);
     }).then(() => {
       return rcon.send(`unbanip ${data.user}`);
+    }).then(() => {
+      return rcon.disconnect();
+    });
+  }
+  function list() {
+    rcon.connect().then(() => {
+      return rcon.send('list');
+    }).then(res => {
+      console.log(res);
     }).then(() => {
       return rcon.disconnect();
     });

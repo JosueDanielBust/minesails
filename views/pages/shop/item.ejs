@@ -1,0 +1,39 @@
+<%- exposeLocalsToBrowser() %>
+
+<div id="shop" class="item-info">
+  <article class="item">
+    <div class="item-image">
+      <img v-bind:src="'/images/' + shop.image" v-bind:alt="shop.title">
+    </div>
+    <div class="item-content">
+      <p>{{ shop.title }} - <span>{{ shop.price }} USD</span></p>
+      <p>{{ shop.comments }}</p>
+      <ul>
+        <li v-for="item in shop.content">{{ item }}</li>
+      </ul>
+    </div>
+  </article>
+  <form method="post" action="https://checkout.payulatam.com/ppp-web-gateway-payu/">
+    <div>
+      <input name="buyerFullName" type="text" placeholder="Name" value="Josue Daniel Bustamante">
+    </div>
+    <div>
+      <input name="extra1" type="text" placeholder="Username" value="JosueDanielBust">
+    </div>
+    <div>
+      <input name="buyerEmail" type="email" placeholder="Email" value="josue@bustamante.email">
+    </div>
+    <input name="merchantId" type="hidden" v-bind:value="checkout.merchantId">
+    <input name="accountId" type="hidden" v-bind:value="checkout.accountId">
+    <input name="description" type="hidden" v-bind:value="checkout.description">
+    <input name="referenceCode" type="hidden" v-bind:value="checkout.referenceCode">
+    <input name="amount" type="hidden" v-bind:value="checkout.amount">
+    <input name="currency" type="hidden" v-bind:value="checkout.currency">
+    <input name="signature" type="hidden" v-bind:value="checkout.signature">
+    <input name="test" type="hidden" v-bind:value="checkout.test">
+    <input name="algorithmSignature" type="hidden" v-bind:value="checkout.algorithmSignature">
+    <input name="responseUrl" type="hidden" v-bind:value="checkout.responseUrl">
+    <input name="confirmationUrl" type="hidden" v-bind:value="checkout.confirmationUrl">
+    <input name="Submit" type="submit" value="<%= __('buy-now') %>">
+  </form>
+</div>

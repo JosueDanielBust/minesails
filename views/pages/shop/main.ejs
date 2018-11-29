@@ -1,8 +1,20 @@
+<%- exposeLocalsToBrowser() %>
+
 <div class="content">
-  <h1><%= __('title') %></h1>
-  <h2><%= __('description') %></h2>
-  <h3>IP: <span><%= __('ip') %></span></h3>
-  <div class="bubble bounce">
-      <span><%= __('click-to-copy') %></span>
+  <div id="shop" class="item-list row">
+    <article class="item col-6" v-for="item in shop">
+      <div class="item-image">
+        <a v-bind:href="item.slug">
+          <img v-bind:src="'/images/' + item.image" v-bind:alt="item.title">
+        </a>
+      </div>
+      <div class="item-content">
+        <p>{{ item.title }}</p>
+        <p>{{ item.price }} USD</p>
+        <a v-bind:href="item.slug">
+          <p class="button"><%= __('buy-now') %></p>
+        </a>
+      </div>
+    </article>
   </div>
 </div>

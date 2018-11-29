@@ -1,0 +1,43 @@
+<%- exposeLocalsToBrowser() %>
+
+<div id="checkout">
+  <h2>Hello {{ checkout.username }}</h2>
+  <p><%= __('transaction-response') %></p>
+
+  <h3><%= __('order') %>: {{ checkout.reference_pol }}</h3>
+
+  <div class="status">
+    <h4>Transaction status</h4>
+    <div>
+      <p>Status</p>
+      <p v-if=" checkout.transactionState == 4 "><%= __('approved') %></p>
+      <p v-if=" checkout.transactionState == 6 "><%= __('declined') %></p>
+      <p v-if=" checkout.transactionState == 7 "><%= __('pending') %></p>
+      <p v-if=" checkout.transactionState == 104 ">Error</p>
+    </div>
+    <div>
+      <p>Transaction ID</p>
+      <p>{{ checkout.transactionId }}</p>
+    </div>
+    <div>
+      <p>Transaction Reference</p>
+      <p>{{ checkout.referenceCode }}</p>
+    </div>
+    <div v-if=" checkout.pseBank != '' ">
+      <p>Bank</p>
+      <p>{{ checkout.pseBank }}</p>
+    </div>
+    <div v-if=" checkout.pseBank != '' " >
+      <p>CUS</p>
+      <p>{{ checkout.cus }}</p>
+    </div>
+    <div>
+      <p>Entity</p>
+      <p>{{ checkout.lapPaymentMethod }}</p>
+    </div>
+    <div>
+      <p>Total Value</p>
+      <p>{{ checkout.value }} {{ checkout.currency }}</p>
+    </div>
+  </div>
+</div>

@@ -6,5 +6,11 @@
   "click-to-copy": "Click para copiar la IP",
   "social": {
     "facebook": "https://facebook.com/ddrserver/"
-  }
+  },
+  "buy-now": "Comprar",
+  "transaction-response": "Si la transacción ha sido exitosa, tu paquete se estara activando en los proximos minutos",
+  "order": "Orden",
+  "approved": "Transacción Aprovada",
+  "declined": "Transacción Rechazada",
+  "pending": "Transacción Pendiente"
 }
