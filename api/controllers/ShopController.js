@@ -83,7 +83,7 @@ function getPayuData( item ) {
     algorithmSignature: payu.algorithmSignature,
     description: 'DDR Server - ' + item.title,
     signature: signature.toString(),
-    responseUrl: 'https://ddrserver.com' + item.response,
+    responseUrl: 'https://ddrserver.com/checkout/response',
     confirmationUrl: 'https://ddrserver.com' + item.confirmation + item.slug
   };
 }

@@ -15,13 +15,13 @@
   </article>
   <form method="post" action="https://checkout.payulatam.com/ppp-web-gateway-payu/">
     <div>
-      <input name="buyerFullName" type="text" placeholder="Name" value="Josue Daniel Bustamante">
+      <input name="buyerFullName" type="text" placeholder="Name">
     </div>
     <div>
-      <input name="extra1" type="text" placeholder="Username" value="JosueDanielBust">
+      <input name="extra1" type="text" placeholder="Username">
     </div>
     <div>
-      <input name="buyerEmail" type="email" placeholder="Email" value="josue@bustamante.email">
+      <input name="buyerEmail" type="email" placeholder="Email">
     </div>
     <input name="merchantId" type="hidden" v-bind:value="checkout.merchantId">
     <input name="accountId" type="hidden" v-bind:value="checkout.accountId">
@@ -30,7 +30,6 @@
     <input name="amount" type="hidden" v-bind:value="checkout.amount">
     <input name="currency" type="hidden" v-bind:value="checkout.currency">
     <input name="signature" type="hidden" v-bind:value="checkout.signature">
-    <input name="test" type="hidden" v-bind:value="checkout.test">
     <input name="algorithmSignature" type="hidden" v-bind:value="checkout.algorithmSignature">
     <input name="responseUrl" type="hidden" v-bind:value="checkout.responseUrl">
     <input name="confirmationUrl" type="hidden" v-bind:value="checkout.confirmationUrl">
